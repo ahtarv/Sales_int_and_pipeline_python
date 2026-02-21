@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import pandas as pd
 import random
@@ -49,4 +50,6 @@ def generate_daily_sales(date):
 
 sales_data = pd.DataFrame([generate_daily_sales(d) for d in dates])
 print(sales_data.head())
+os.makedirs("data", exist_ok=True)
 sales_data.to_csv("data/sales_data.csv", index=False)
+print("Saved to data/sales_data.csv")
